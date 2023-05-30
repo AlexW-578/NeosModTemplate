@@ -12,7 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
-    <ProjectGuid>{0322B2EF-7452-479D-BAE2-FCAB75033337}</ProjectGuid>
+    <ProjectGuid>{47561A7C-DA9A-4362-877E-BBFD35328A2B}</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,19 +31,28 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(NeosPath)'==''">
+    <NeosPath>$(MSBuildThisFileDirectory)NeosVR/</NeosPath>
+    <NeosPath Condition="Exists('D:\Apps\Neos\app\')">D:\Apps\Neos\app\</NeosPath>
+    <NeosPath Condition="Exists('C:\Program Files (x86)\Steam\steamapps\common\NeosVR\')">C:\Program Files (x86)\Steam\steamapps\common\NeosVR\</NeosPath>
+	  <NeosPath Condition="Exists('..\..\..\Desktop\Neos\app\')">..\..\..\Desktop\Neos\app\</NeosPath>
+    <NeosPath Condition="Exists('$(HOME)/.steam/steam/steamapps/common/NeosVR/')">$(HOME)/.steam/steam/steamapps/common/NeosVR/</NeosPath>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Lib.Harmony.2.1.1\lib\net45\0Harmony.dll</HintPath>
+    <Reference Include="0Harmony">
+      <HintPath>$(NeosPath)\nml_libs\0Harmony.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="BaseX">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\NeosVR\Neos_Data\Managed\BaseX.dll</HintPath>
+      <HintPath>$(NeosPath)\Neos_Data\Managed\BaseX.dll</HintPath>
     </Reference>
     <Reference Include="FrooxEngine">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\NeosVR\Neos_Data\Managed\FrooxEngine.dll</HintPath>
+      <HintPath>$(NeosPath)\Neos_Data\Managed\FrooxEngine.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="NeosModLoader">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\NeosVR\Libraries\NeosModLoader.dll</HintPath>
-    </Reference>
+      <HintPath>$(NeosPath)\Libraries\NeosModLoader.dll</HintPath>
+      <Private>False</Private>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModNameGoesHere.cs" />
@@ -54,6 +63,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)\$(TargetFileName)" "C:\Program Files (x86)\Steam\steamapps\common\NeosVR\nml_mods\"</PostBuildEvent>
+    <PostBuildEvent>copy "$(TargetDir)\$(TargetFileName)" "$(NeosPath)\nml_mods\"</PostBuildEvent>
   </PropertyGroup>
 </Project>
