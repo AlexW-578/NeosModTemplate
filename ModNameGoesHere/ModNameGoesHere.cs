@@ -7,7 +7,7 @@ namespace ModNameGoesHere
     {
         public override string Name => "ModNameGoesHere";
         public override string Author => "username";
-        public override string Version => "1.0.0";
+        public override string Version => "0.0.1";
         public override string Link => "https://github.com/GithubUsername/RepoName/";
         public override void OnEngineInit()
         {
