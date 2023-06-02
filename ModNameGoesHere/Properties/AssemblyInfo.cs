@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ModNameGoesHere")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Name")]
 [assembly: AssemblyProduct("ModNameGoesHere")]
 [assembly: AssemblyCopyright("Copyright © Name 2023")]
 [assembly: AssemblyTrademark("")]
